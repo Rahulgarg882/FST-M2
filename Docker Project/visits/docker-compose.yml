@@ -1,0 +1,12 @@
+version: '3' 
+services:
+    redis-dbserver:
+        image: 'redis'
+        volumes:
+            - ./redis:/data
+        command: ["redis-server", "--save", "1 1"]
+    node-app:
+        image: garg882/visits
+        build: ./
+        ports:
+            - "8081:8081"
